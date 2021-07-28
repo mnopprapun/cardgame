@@ -15,7 +15,7 @@ const {deck_id: deckId } = data;
 
 const {data:cardResponse} = await api.get(`${deckId}/draw/`, {
 		params:{
-			count: 1
+			count: 26
 		}
 	});
 	console.log(data)
