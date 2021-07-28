@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { createDeckAndDraw } from './components/api'
+import React, { useState, useEffect } from "react";
+import { createDeckAndDraw } from "./components/api";
 
 export default function CardGameBoard() {
-const [deck, setDeck] = useState(null)
+  const [cardImageUrl, setcardImageUrl] = useState(null);
+  const [cardValue, setcardValue] = useState(null);
+  const [deckId, setdeckId] = useState(null);
 
-useEffect( () => {
-	createDeckAndDraw()
-}, [])
+  useEffect(() => {
+    createDeckAndDraw();
+  }, []);
 
-	return (
-		<div>
-			testing
-		</div>
-	)
+  return <div>testing</div>;
 }
