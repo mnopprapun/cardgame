@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { createDeckAndDraw } from "./api";
 
+let i = 0;
 export default class CardGameBoardRCC extends Component {
   state = {
     currentCard1: [],
