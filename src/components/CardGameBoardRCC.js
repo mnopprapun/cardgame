@@ -18,6 +18,7 @@ export default class CardGameBoardRCC extends Component {
 			cards2: cards2
 		})
 
+
 	}
 
 	compareCardValues = (player1Card) => {
@@ -76,21 +77,22 @@ export default class CardGameBoardRCC extends Component {
 		let cards2 = this.state.cards2
 
 
-
+		
 		this.setState({ currentCard1: cards[i] });
 		this.setState({ currentCard2: cards2[i] });
 		i++;
-
-
+		
 		// for (let i = 0; i < cards.length; i++) {
 
 
 		// 	this.setState({ currentCard1: cards[i] })
 
 		// 	break;
-
-
-		// }
+		
+		console.log(this.state.cards[i - 1].code)
+		console.log(this.state.cards2[i - 1].code)
+			// this.compareCardValues(this.state.cards[i])
+		}
 
 
 
@@ -105,8 +107,6 @@ export default class CardGameBoardRCC extends Component {
 		// }
 
 
-
-	}
 
 
 	render() {
