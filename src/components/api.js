@@ -26,8 +26,8 @@ export const createDeckAndDraw = async () => {
     },
   });
 
-  console.log(data);
   console.log(cardResponse);
+  console.log(cardResponse2);
 
   const cards = cardResponse.cards;
   const cards2 = cardResponse2.cards;
