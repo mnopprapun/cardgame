@@ -1,14 +1,14 @@
 import './App.css';
-import CardGameBoard from './CardGameBoardRCC';
+import CardGameBoard from './components/CardGameBoardRCC'
+import Home from './Home';
 
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        hello!
-      </header>
+          <video src='/videos/video-1.mp4' autoPlay loop muted />
+      <Home />
       <div>
       <CardGameBoard/>
       </div>
@@ -17,3 +17,4 @@ function App() {
 }
 
 export default App;
+
