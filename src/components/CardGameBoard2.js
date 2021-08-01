@@ -22,64 +22,38 @@ export default class CardGameBoardRCC extends Component {
   }
 
   compareCardValues = (player1Card, player2Card) => {
-    const cardValues = [
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "JACK",
-      "QUEEN",
-      "KING",
-      "ACE",
-      "JOKER",
-    ];
 
-// logic for comparing values and pushing winner cards into discardpile.
-    if (player1Card > player2Card) {
+    // logic for comparing values and pushing winner cards into discardpile.
+    if (player1Card.value > player2Card.value) {
       this.state.discardPile1.push(player1Card, player2Card);
       this.state.cards.splice(0, 1);
-
-    } else if (player2Card > player1Card) {
+    } else if (player2Card.value > player1Card.value) {
       this.state.discardPile2.push(player2Card, player1Card);
       this.state.cards2.splice(0, 1);
     }
     console.log(this.state.discardPile1, this.state.discardPile2);
 
-
-    if (player2Card > player1Card) {
+    if (player2Card.value > player1Card.value) {
       this.state.cards.splice(0, 1);
-    } else if (player1Card > player2Card) {
+    } else if (player1Card.value > player2Card.value) {
       this.state.cards2.splice(0, 1);
     }
 
-// Tie cards
-    if (player1Card === player2Card) {
+    // Tie cards still needs additional log to Play 'WAR' draw 3 then compare 4th card
+    if (player1Card.value === player2Card.value) {
       this.state.discardPile1.push(player1Card);
       this.state.discardPile2.push(player2Card);
     }
 
- // reshuffle
+    // reshuffle does not work correctly yet er
     if (this.state.cards.length === 0) {
       this.state.cards.push(this.state.discardPile1);
     } else if (this.state.cards2.length === 0) {
       this.state.cards2.push(this.state.discardPile2);
     }
 
-    // if (this.state.discardPile1 & this.state.discardPile2 >= 54){
-    // }
-
     console.log(this.state.cards, this.state.cards2);
-
   };
-
-
-
-
 
   drawCard = () => {
     let cards = this.state.cards;
@@ -90,13 +64,8 @@ export default class CardGameBoardRCC extends Component {
     this.setState({ currentCard1: cards[i] });
     this.setState({ currentCard2: cards2[i] });
 
-    this.compareCardValues(
-      this.state.cards[i].value,
-      this.state.cards2[i].value,
-    );
+    this.compareCardValues(this.state.cards[i], this.state.cards2[i]);
   };
-
-
 
   render() {
     return (
