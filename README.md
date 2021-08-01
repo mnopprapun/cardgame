@@ -12,3 +12,4 @@ Marc's notes
 - Created drawCard Function
 - created button to draw cards from both decks
 - Displayed Image of Drawn Card
+- Create logic to compare Values of Cards   ** ran in to a Bug where it " Cannot read property 'value' of undefined " when playercards count reach 13 / 14

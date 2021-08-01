@@ -39,31 +39,29 @@ export default class CardGameBoardRCC extends Component {
       "JOKER",
     ];
 
-// logic for comparing values and pushing winner cards into discardpile.
+
     if (player1Card > player2Card) {
       this.state.discardPile1.push(player1Card, player2Card);
-      this.state.cards.splice(0, 1);
-
+      this.state.cards.slice(0, 1);
     } else if (player2Card > player1Card) {
       this.state.discardPile2.push(player2Card, player1Card);
-      this.state.cards2.splice(0, 1);
+      this.state.cards2.slice(0, 1);
     }
     console.log(this.state.discardPile1, this.state.discardPile2);
 
-
     if (player2Card > player1Card) {
-      this.state.cards.splice(0, 1);
+      this.state.cards.slice(0, 1);
     } else if (player1Card > player2Card) {
-      this.state.cards2.splice(0, 1);
+      this.state.cards2.slice(0, 1);
     }
 
-// Tie cards
+
     if (player1Card === player2Card) {
       this.state.discardPile1.push(player1Card);
       this.state.discardPile2.push(player2Card);
     }
 
- // reshuffle
+
     if (this.state.cards.length === 0) {
       this.state.cards.push(this.state.discardPile1);
     } else if (this.state.cards2.length === 0) {
@@ -92,7 +90,9 @@ export default class CardGameBoardRCC extends Component {
 
     this.compareCardValues(
       this.state.cards[i].value,
+      // this.state.cards[i].image,
       this.state.cards2[i].value,
+      // this.state.cards2[i].image,
     );
   };
 

@@ -31,7 +31,7 @@ export default class CardGameBoardRCC extends Component {
  // i = index beginning with first in array 0 
     for (let i = 0; i < cards.length; i++) {
       this.setState({ currentCard1: cards[i] });
-	  const c = this.state.cards[0]
+	  const c = this.state.cards[i]
 	  console.log(c.value)
       break;
 
@@ -39,7 +39,7 @@ export default class CardGameBoardRCC extends Component {
 
     for (let i = 0; i < cards2.length; i++) {
       this.setState({ currentCard2: cards2[i] });
-	  const c2 = this.state.cards2[0]
+	  const c2 = this.state.cards2[i]
 	  console.log(c2)
       break;
     }

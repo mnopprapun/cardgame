@@ -26,6 +26,8 @@ export const createDeckAndDraw = async () => {
     },
   });
 
+// const { data: piles } = await api.get(`${deckID}/pile/discardPile1/add/`)
+
   console.log(cardResponse);
   console.log(cardResponse2);
 
