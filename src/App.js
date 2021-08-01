@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './App.css';
 import CardGameBoard from './components/CardGameBoardRCC'
 import React, { Component } from 'react'
@@ -44,6 +45,24 @@ export class App extends Component {
       </div>
     )
   }
+=======
+import "./App.css";
+import CardGameBoard from "./components/CardGameBoard2";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./Home";
+
+function App() {
+  return (
+    <div className="App">
+      <video src='/videos/video-1.mp4' autoPlay loop muted />
+      <Home />
+      <div>
+        <CardGameBoard/>
+      </div>
+    </div>
+
+  );
+>>>>>>> b3739897cd361015f73fade488b63de3acfb5186
 }
 
 export default App
