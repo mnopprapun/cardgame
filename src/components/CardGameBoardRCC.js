@@ -12,7 +12,10 @@ export default class CardGameBoardRCC extends Component {
     discardPile1: [],
     discardPile2: [],
 	player1CardsRemaining: '',
-	player2CardsRemaining: ''
+	player2CardsRemaining: '',
+	player1Score: 0,
+	player2Score: 0,
+	playerHasWon: false,
 
     // viewCards: false,
 
@@ -145,22 +148,62 @@ else if (this.state.cards.length <= 1) {
 
     // console.log(i)
     
-	if (this.state.player2CardsRemaining >= 31){
+	if (this.state.player2CardsRemaining >= 28){
 		alert('Player 2 has won')
+		this.setState({
+			player2Score: this.state.player2Score + 1,
+			playerHasWon: true
+
+		})
+
 	}
-	else if (this.state.player1CardsRemaining >= 31){
+	else if (this.state.player1CardsRemaining >= 28){
 		alert('Player 1 has won')
+		this.setState({
+			player1Score: this.state.player1Score + 1,
+			playerHasWon: true
+		})
+	}
+
+	else if (this.state.player1Score == 3){
+		alert('Game over, player 1 won the game')
+		window.location.reload();
+	}
+
+	else if(this.state.player2Score == 3){
+		alert('Game over, player 2 won the game')
+		window.location.reload();
 	}
   };
 
 
+
+async newCards() {
+	const { cards, cards2, deckId } = await createDeckAndDraw();
+    this.setState({
+      deckId: deckId,
+      cards: cards,
+      cards2: cards2,
+      currentCard1: cards[0],
+      currentCard2: cards2[0],
+	  player1CardsRemaining: cards.length,
+	  player2CardsRemaining: cards2.length,
+	  discardPile2: [],
+	  discardPile1: [],
+	  playerHasWon: false
+    });
+}
 
   render() {
     return (
       <div>
         {/* {this.state.viewCards ? <img src={this.state.currentCard1.image} alt="your card" /> : null}
         {this.state.viewCards ? <img src={this.state.currentCard2.image} alt="your card" /> : null} */}
-		{/* <center> */}
+		<center>
+		<h3 className="scores-board">ScoreBoard</h3>
+			<p className="scores">
+				P1  <b>{this.state.player1Score}</b> : <b>{this.state.player2Score}</b>   P2
+			</p>
 		<div className="card-container">
 		<div>
 		<h6 className="card1-label">Player 1 Card Remaining: {this.state.player1CardsRemaining}</h6>
@@ -175,11 +218,11 @@ else if (this.state.cards.length <= 1) {
 		<img className="back-card" src="https://opengameart.org/sites/default/files/card%20back%20red.png" alt="back-card" />
 		<p className="card-label">Discard Pile Remaining: {this.state.discardPile2.length}</p>
 		</div>
-		
 
 		</div>
-		{/* </center> */}
-        <button onClick={this.drawCard}>draw</button>
+		</center>
+		{this.state.playerHasWon ? <button onClick={() => this.newCards()}>Start Again?</button> : null}
+        <button className="draw-btn" onClick={this.drawCard}>draw</button>
       </div>
     );
   }
