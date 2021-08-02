@@ -5,10 +5,6 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import CardGameBoardRCC from './components/CardGameBoardRCC';
 
 
-import "./App.css";
-import CardGameBoard from "./components/CardGameBoard2";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./Home";
 
 function App() {
   return (
@@ -25,9 +21,7 @@ function App() {
         </Switch>
       </Router>
     </div>
-
   );
-
 }
 
-export default App
+export default App;
