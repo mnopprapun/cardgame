@@ -218,7 +218,7 @@ async newCards() {
 		<img className="back-card" src="https://opengameart.org/sites/default/files/card%20back%20red.png" alt="back-card" />
 		<p className="card-label">Discard Pile Remaining: {this.state.discardPile2.length}</p>
 		</div>
-
+<h1> TESTING THIS BLAH</h1>
 		</div>
 		</center>
 		{this.state.playerHasWon ? <button onClick={() => this.newCards()}>Start Again?</button> : null}
