@@ -1,4 +1,4 @@
-Marc's notes
+Features added notes
 
 - created the app 
 - connected API to the console
@@ -12,4 +12,10 @@ Marc's notes
 - Created drawCard Function
 - created button to draw cards from both decks
 - Displayed Image of Drawn Card
-- Create logic to compare Values of Cards   ** ran in to a Bug where it " Cannot read property 'value' of undefined " when playercards count reach 13 / 14
+- Create logic to compare Values of Cards  
+- created a discard pile for players 1 and 2 to help keep count of # cards taken
+- Corrected logic of comparing values and pushing the cards to the winners discard pile
+- created logic to push the discardpiles back into player cards to continue game.
+- set up Win logic for when player reaches 54 cards. will alert player win
+- created ternary button to show when a game ends to restart to a new game.
+

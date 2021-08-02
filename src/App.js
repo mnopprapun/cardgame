@@ -1,20 +1,28 @@
-import "./App.css";
-import CardGameBoard from "./components/CardGameBoard2";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./Home";
+
+import './App.css';
+
+import Home from './Home';
+import { Switch, Route, BrowserRouter as Router} from "react-router-dom";
+import CardGameBoardRCC from './components/CardGameBoardRCC';
+
+
 
 function App() {
   return (
     <div className="App">
-      <video src='/videos/video-1.mp4' autoPlay loop muted />
-      <Home />
-      <div>
-        <CardGameBoard/>
-      </div>
+          <video src='/videos/video-1.mp4' autoPlay loop muted />
+          <Router>
+          <Switch>
+          <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/gameboard">
+          <CardGameBoardRCC />
+        </Route>
+      </Switch>
+      </Router>
     </div>
-
   );
 }
 
 export default App;
-

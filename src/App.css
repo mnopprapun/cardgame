@@ -19,3 +19,46 @@ video {
   padding-bottom: 10px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.home-btn{
+  margin-top: 40px;
+  padding: 20px 30px 20px 30px;
+  font-size: 22px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: white;
+  background-color: #2F3E31;
+}
+
+.card-container{
+  display: flex;
+  /* flex-direction: column; */
+} 
+
+.card1{
+  margin-right: 220px;
+} 
+
+.card1-label{
+  color: white;
+  margin-top: 100px;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+.card2-label{
+  color: white;
+  margin-top: 100px;
+  margin-left: 10px;
+}
+
+.back-card{
+  height: 200px;
+  margin-left: 20px;
+  /* width: 50%; */
+}
+
+.card-label{
+  color: white;
+  margin-left: 20px;
+}
+/* .card2{
+  margin-left: 40px;
+} */
