@@ -59,6 +59,21 @@ video {
   color: white;
   margin-left: 20px;
 }
+.scores-board{
+  color: white;
+  text-align: center;
+}
+.scores{
+  color: white;
+  text-align: center;
+}
+
+.draw-btn{
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 10px 15px 10px 15px;
+}
 /* .card2{
   margin-left: 40px;
 } */
