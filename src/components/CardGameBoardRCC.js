@@ -1,123 +1,146 @@
-import React, { Component } from 'react'
-import { createDeckAndDraw } from './api'
+import React, { Component } from "react";
+import { createDeckAndDraw } from "./api";
 
 let i = 0;
 export default class CardGameBoardRCC extends Component {
-	state = {
-		currentCard1: [],
-		currentCard2: [],
-		deckId: null,
-		cards: [],
-		cards2: []
-	}
-	async componentDidMount() {
-		const { cards, cards2, deckId, } = await createDeckAndDraw();
+  state = {
+    currentCard1: [],
+    currentCard2: [],
+    deckId: null,
+    cards: [],
+    cards2: [],
+    discardPile1: [],
+    discardPile2: [],
+	player1CardsRemaining: 27,
+	player2CardsRemaining: 27
+    // viewCards: false,
+
+  };
+  async componentDidMount() {
+    const { cards, cards2, deckId } = await createDeckAndDraw();
+    this.setState({
+      deckId,
+      cards: cards,
+      cards2: cards2,
+      currentCard1: cards[0],
+      currentCard2: cards2[0],
+    });
+  } 0.
+
+  compareCardValues = (player1Card, player2Card) => {
+
+    const cardValues = [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "JACK",
+      "QUEEN",
+      "KING",
+      "ACE",
+      "JOKER",
+    ];
+
+
+    const player1CardValueIndex = cardValues.indexOf(player1Card.value);
+
+
+    const player2CardValueIndex = cardValues.indexOf(player2Card.value);
+
+
+    // logic for comparing values and pushing winner cards into discardpile.
+    if (player1CardValueIndex > player2CardValueIndex) {
+      this.state.discardPile1.push(player1Card, player2Card);
+      this.state.cards.splice(0, 1);
+      this.state.cards2.splice(0, 1);
 		this.setState({
-			deckId,
-			cards: cards,
-			cards2: cards2
+			player1CardsRemaining: this.state.cards.length + this.state.discardPile1.length
 		})
 
 
+    } else if (player2CardValueIndex > player1CardValueIndex) {
+      this.state.discardPile2.push(player2Card, player1Card);
+
+      this.state.cards2.splice(0, 1);
+      this.state.cards.splice(0, 1);
+	  this.setState({
+		player2CardsRemaining: this.state.cards2.length + this.state.discardPile2.length
+	})
+
+    }
+    console.log(this.state.discardPile1, this.state.discardPile2);
+    console.log(this.state.cards, this.state.cards2)
+
+
+
+    // Tie cards
+    if (player1CardValueIndex === player2CardValueIndex) {
+      this.state.discardPile1.push(player1Card);
+      this.state.cards.splice(0, 1);
+
+      this.state.discardPile2.push(player2Card);
+      this.state.cards2.splice(0, 1);
+
+    }
+
+    // reshuffle
+
+	if (this.state.cards.length && this.state.cards2.length <= 1 ){
+
+	this.state.cards = [...this.state.discardPile1]
+	this.setState({
+		discardPile1: []
+	})
+	this.state.cards2 = [...this.state.discardPile2]
+	this.setState({
+		discardPile2: []
+	})
 	}
-
-	compareCardValues = (player1Card) => {
-		console.log(player1Card)
-		const cardValues = [
-			'2',
-			'3',
-			'4',
-			'5',
-			'6',
-			'7',
-			'8',
-			'9',
-			'10',
-			'JACK',
-			'QUEEN',
-			'KING',
-			'ACE',
-			'JOKER'
-		];
-
-
-		// const previousCardValueIndex = cardValues.indexOf(previousCardValue);
-		const player1CardValueIndex = cardValues.indexOf(player1Card);
-		console.log(player1Card)
-
-		// const player2CardValueIndex = cardValues.indexOf(player2Card);
-
-
-		// if (previousCardValueIndex === -1 || currentCardValueIndex === -1) {
-		// 	throw new Error('Supplied cardValue not found in cardValues array');
-		// }
-
-		// if (bet === 'up' && previousCardValueIndex >= currentCardValueIndex) {
-		// 	return 'Lose';
-		// }
-		// if (bet === 'up' && previousCardValueIndex < currentCardValueIndex) {
-		// 	return 'Win';
-		// }
-
-		// if (bet === 'down' && previousCardValueIndex <= currentCardValueIndex) {
-		// 	return 'Lose';
-		// }
-		// if (bet === 'down' && previousCardValueIndex > currentCardValueIndex) {
-		// 	return 'Win';
-		// }
+  };
 
 
 
 
-	}
+  drawCard = () => {
 
 
-	drawCard = () => {
-		let cards = this.state.cards
-		let cards2 = this.state.cards2
+    // this.setState({ viewCards: true });
+    this.compareCardValues(this.state.cards[i], this.state.cards2[i]);
+    this.setState({ currentCard1: this.state.cards[i], currentCard2: this.state.cards2[i] })
 
 
-		
-		this.setState({ currentCard1: cards[i] });
-		this.setState({ currentCard2: cards2[i] });
-		i++;
-		
-		// for (let i = 0; i < cards.length; i++) {
+    // console.log(i)
+
+    // this.compareCardValues(this.state.cards[i], this.state.cards2[i]);
+    // this.setState({ currentCard1: this.state.cards[i], currentCard2: this.state.cards2[i] })
 
 
-		// 	this.setState({ currentCard1: cards[i] })
+    // console.log(i)
+    if (this.state.cards.length == 1 || this.state.cards2.length == 1) {
+      console.log('out of cards')
+    }
 
-		// 	break;
-		
-		console.log(this.state.cards[i - 1].code)
-		console.log(this.state.cards2[i - 1].code)
-			// this.compareCardValues(this.state.cards[i])
-		}
+
+  };
 
 
 
-
-		// for (let i = 0; i < cards2.length; i++) {
-
-		// 	this.setState({ currentCard2: cards2[i] })
-
-
-		// 	break;
-
-		// }
-
-
-
-
-	render() {
-		return (
-			<div>
-				<img src={this.state.currentCard1.image} alt="your card" />
-				<img src={this.state.currentCard2.image} alt="your card" />
-
-				<button onClick={this.drawCard}>draw</button>
-
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div>
+        {/* {this.state.viewCards ? <img src={this.state.currentCard1.image} alt="your card" /> : null}
+        {this.state.viewCards ? <img src={this.state.currentCard2.image} alt="your card" /> : null} */}
+		<h3>Player 1 Card Remaining: {this.state.player1CardsRemaining}</h3>
+		<h3>Player 2 Card Remaining: {this.state.player2CardsRemaining}</h3>
+        <img src={this.state.currentCard1.image} alt="your card" />
+        <img src={this.state.currentCard2.image} alt="your card" />
+        <button onClick={this.drawCard}>draw</button>
+      </div>
+    );
+  }
 }
