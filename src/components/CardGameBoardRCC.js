@@ -206,7 +206,6 @@ async newCards() {
 			</p>
 		<div className="card-container">
 		<div>
-      <h1> TESTING THIS CRAP</h1>
 		<h6 className="card1-label">Player 1 Card Remaining: {this.state.player1CardsRemaining}</h6>
 		<img className="back-card" src="https://opengameart.org/sites/default/files/card%20back%20red.png" alt="back-card" />
 		<p className="card-label">Discard Pile Remaining: {this.state.discardPile1.length}</p>
