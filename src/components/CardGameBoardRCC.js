@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { createDeckAndDraw } from "./api";
+import Confetti from 'react-confetti'
 
 let i = 0;
 export default class CardGameBoardRCC extends Component {
@@ -221,8 +222,12 @@ async newCards() {
 
 		</div>
 		</center>
-		{this.state.playerHasWon ? <button onClick={() => this.newCards()}>Start Again?</button> : null}
-        <button className="draw-btn" onClick={this.drawCard}>draw</button>
+		<center>
+		{this.state.playerHasWon ? <button className="draw-btn" onClick={() => this.newCards()}>Continue Playing</button> : null}
+		{this.state.playerHasWon ? <Confetti></Confetti> : null}
+		
+        <button className="draw-btn" onClick={this.drawCard}>Draw Card</button>
+		</center>
       </div>
     );
   }

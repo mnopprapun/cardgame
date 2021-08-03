@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -8,7 +7,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import ReactPlayer from 'react-player/youtube';
 import { Link } from 'react-router-dom';
-import CardGameBoardRCC from './components/CardGameBoardRCC';
+
 
 
 
@@ -46,9 +45,6 @@ const Home = () => {
 
   return (
 	  <div>
-	   <h1 className="App-header">
-        Ready To Go To War?
-      </h1>
 	  <center>
     <Card className={classes.root}>
       <CardHeader
