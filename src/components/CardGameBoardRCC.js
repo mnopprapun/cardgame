@@ -200,6 +200,7 @@ export default class CardGameBoardRCC extends Component {
       <div>
         {/* {this.state.viewCards ? <img src={this.state.currentCard1.image} alt="your card" /> : null}
         {this.state.viewCards ? <img src={this.state.currentCard2.image} alt="your card" /> : null} */}
+<<<<<<< HEAD
         <center>
           <h3 className="scores-board">ScoreBoard</h3>
           <p className="scores">
@@ -228,6 +229,37 @@ export default class CardGameBoardRCC extends Component {
 
           <button className="draw-btn" onClick={this.drawCard}>Draw Card</button>
         </center>
+=======
+		<center>
+		<h3 className="scores-board">ScoreBoard</h3>
+			<p className="scores">
+				P1  <b>{this.state.player1Score}</b> : <b>{this.state.player2Score}</b>   P2
+			</p>
+		<div className="card-container">
+		<div>
+		<h6 className="card1-label">Player 1 Card Remaining: {this.state.player1CardsRemaining}</h6>
+		<img className="back-card" src="https://opengameart.org/sites/default/files/card%20back%20red.png" alt="back-card" />
+		<p className="card-label">Discard Pile Remaining: {this.state.discardPile1.length}</p>
+		</div>
+
+        <img className="card1" src={this.state.currentCard1.image} alt="your card" />
+        <img className="card2" src={this.state.currentCard2.image} alt="your card" />
+		<div>
+		<h6 className="card2-label">Player 2 Card Remaining: {this.state.player2CardsRemaining}</h6>
+		<img className="back-card" src="https://opengameart.org/sites/default/files/card%20back%20red.png" alt="back-card" />
+		<p className="card-label">Discard Pile Remaining: {this.state.discardPile2.length}</p>
+		</div>
+
+		</div>
+		</center>
+		<center>
+		{this.state.playerHasWon ? <button className="draw-btn" onClick={() => this.newCards()}>Continue Playing</button> : null}
+		{this.state.playerHasWon ? <Confetti></Confetti> : null}
+		
+        <button className="draw-btn" onClick={this.drawCard}>Draw Card</button>
+		<p className="game-footer"> Whichever player reaches more than 27 cards first will win the round</p>
+		</center>
+>>>>>>> b76c30f4d5fbbf4d658200fd2041e253a253e49a
       </div>
     );
   }

@@ -91,6 +91,13 @@ video {
   font-size: 20px !important;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
 }
+.game-footer{
+  color: white;
+  margin-top: 80px;
+  font-size: 20px;
+
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 /* .card2{
   margin-left: 40px;
 } */
