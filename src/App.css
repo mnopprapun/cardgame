@@ -30,6 +30,8 @@ video {
 
 .card-container{
   display: flex;
+  align-items: center;
+  justify-content: center;
   /* flex-direction: column; */
 } 
 
@@ -73,6 +75,21 @@ video {
   background-color: black;
   color: white;
   padding: 10px 15px 10px 15px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
+}
+.nav-brand{
+  color: white !important;
+  font-size: 25px !important;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+}
+.nav-item{
+  color: white !important;
+  font-size: 20px !important;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
 }
 /* .card2{
   margin-left: 40px;

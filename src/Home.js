@@ -44,9 +44,6 @@ const Home = () => {
 
 	return (
 		<div>
-			<h1 className="App-header">
-				Ready To Go To War?
-			</h1>
 			<center>
 				<Card className={classes.root}>
 					<CardHeader
