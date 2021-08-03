@@ -53,7 +53,7 @@ function About() {
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
-                  style={{ height: 440, width: 400 }}
+                  style={{ height: 440, width: 370 }}
                   className={classes.media}
                   image="https://i.imgur.com/erE34vv.jpg"
                   title="Photo of Founder"
