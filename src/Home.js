@@ -64,7 +64,7 @@ const Home = () => {
 					</CardContent>
 				</Card>
 				<Link to="/gameboard">
-					<button className="home-btn">Start Playing</button>
+					<button className="home-btn">Test</button>
 				</Link>
 			</center>
 		</div>
