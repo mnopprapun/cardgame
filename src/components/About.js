@@ -85,7 +85,7 @@ function About() {
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
-                  style={{ height: 440, width: 400 }}
+                  style={{ height: 440, width: 370 }}
                   className={classes.media}
                   image="https://media-exp3.licdn.com/dms/image/C5603AQE06YLnG-sz6A/profile-displayphoto-shrink_800_800/0/1564611307314?e=1628121600&v=beta&t=0c9mUAhcNyp2DM3PwoeJQIokL8h--N1OnsA2NGAaBto"
                   title="Photo of Founder"
@@ -117,7 +117,7 @@ function About() {
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
-                  style={{ height: 440, width: 400 }}
+                  style={{ height: 440, width: 370 }}
                   className={classes.media}
                   image="https://i.imgur.com/v1HAPCp.png"
                   title="Founder Photo"
