@@ -227,6 +227,7 @@ async newCards() {
 		{this.state.playerHasWon ? <Confetti></Confetti> : null}
 		
         <button className="draw-btn" onClick={this.drawCard}>Draw Card</button>
+		<p className="game-footer"> Whichever player reaches more than 27 cards first will win the round</p>
 		</center>
       </div>
     );
