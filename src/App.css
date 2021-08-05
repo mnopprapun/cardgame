@@ -1,4 +1,4 @@
-.link{
+.link {
   text-decoration: none;
   color: black;
 }
@@ -11,66 +11,66 @@ video {
   z-index: -1;
 }
 
-.App-header{
+.App-header {
   color: white;
   background-color: black;
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-bottom: 0px;
 }
-.home-btn{
+.home-btn {
   margin-top: 40px;
   padding: 20px 30px 20px 30px;
   font-size: 22px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: white;
-  background-color: #2F3E31;
+  background-color: #2f3e31;
 }
 
-.card-container{
+.card-container {
   display: flex;
   align-items: center;
   justify-content: center;
   /* flex-direction: column; */
-} 
+}
 
-.card1{
+.card1 {
   margin-right: 220px;
-} 
+}
 
-.card1-label{
+.card1-label {
   color: white;
   margin-top: 100px;
   margin-right: 10px;
   margin-left: 20px;
 }
-.card2-label{
+.card2-label {
   color: white;
   margin-top: 100px;
   margin-left: 10px;
 }
 
-.back-card{
+.back-card {
   height: 200px;
   margin-left: 20px;
   /* width: 50%; */
 }
 
-.card-label{
+.card-label {
   color: white;
   margin-left: 20px;
 }
-.scores-board{
+.scores-board {
   color: white;
   text-align: center;
 }
-.scores{
+.scores {
   color: white;
   text-align: center;
 }
 
-.draw-btn{
+.draw-btn {
   text-align: center;
   background-color: black;
   color: white;
@@ -78,26 +78,30 @@ video {
   align-items: center;
   justify-content: center;
   display: flex;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 20px;
 }
-.nav-brand{
+.nav-brand {
   color: white !important;
   font-size: 25px !important;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif !important;
 }
-.nav-item{
+.nav-item {
   color: white !important;
   font-size: 20px !important;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif !important;
 }
-.game-footer{
+.game-footer {
   color: white;
   margin-top: 80px;
   font-size: 20px;
 
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 /* .card2{
   margin-left: 40px;
 } */
+
+.nav-bar {
+  background-color: black;
+}
