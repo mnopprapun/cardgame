@@ -87,7 +87,7 @@ function About() {
                 <CardMedia
                   style={{ height: 440, width: 370 }}
                   className={classes.media}
-                  image="https://media-exp3.licdn.com/dms/image/C5603AQE06YLnG-sz6A/profile-displayphoto-shrink_800_800/0/1564611307314?e=1628121600&v=beta&t=0c9mUAhcNyp2DM3PwoeJQIokL8h--N1OnsA2NGAaBto"
+                  image="https://media-exp1.licdn.com/dms/image/C5603AQE06YLnG-sz6A/profile-displayphoto-shrink_200_200/0/1564611307314?e=1633564800&v=beta&t=xTlGSicxw8j9_5v01yAWqjShT8CKIRpJiZjN5rwl_hQ"
                   title="Photo of Founder"
                 />
                 <CardContent>
@@ -95,7 +95,7 @@ function About() {
                     Selam Degefu
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    Born and Raised in Addis Ababa, Ethiopia with 6 siblings, I was known in the house for always solving problems and being my dad's "right hand". My love for problem solbing pushed me to work with different types of client throught my career journey. Programming has always been something so I left my full-time role this year to pursue software engineering at Flatiron School. I am excited to build cool innovative application that solve real world problems. When I am not coding, I love traveling and spending time with my 5 sisters. So excited to join the workforce soon.
+                    Born and Raised in Addis Ababa, Ethiopia with 6 siblings, I was known in the house for always solving problems and being my dad's "right hand". My love for problem solving pushed me to work with different types of client throught my career journey. Programming has always been something I wanted to pursue so I left my full-time role this year to start software engineering at Flatiron School. I am excited to build cool innovative application that solves real world problems. When I am not coding, I love traveling and spending time with my 5 sisters. So excited to join the workforce soon.
                   </Typography>
                 </CardContent>
               </CardActionArea>
