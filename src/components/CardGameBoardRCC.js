@@ -35,6 +35,7 @@ export default class CardGameBoardRCC extends Component {
   }
 
   compareCardValues = (player1Card, player2Card) => {
+    console.log(this.state.cards.length)
 
     const cardValues = [
       "2",
@@ -63,27 +64,27 @@ export default class CardGameBoardRCC extends Component {
     // logic for comparing values and pushing winner cards into discardpile.
     if (player1CardValueIndex > player2CardValueIndex) {
       this.state.discardPile1.push(player1Card, player2Card);
+      this.state.cards.splice(0, 1);
+      this.state.cards2.splice(0, 1);
       this.setState({
         player1CardsRemaining: this.state.cards.length
       })
       this.setState({
         player2CardsRemaining: this.state.cards2.length
       })
-      this.state.cards.splice(0, 1);
-      this.state.cards2.splice(0, 1);
 
 
     } else if (player2CardValueIndex > player1CardValueIndex) {
       this.state.discardPile2.push(player2Card, player1Card);
 
+      this.state.cards2.splice(0, 1);
+      this.state.cards.splice(0, 1);
       this.setState({
         player2CardsRemaining: this.state.cards2.length
       })
       this.setState({
         player1CardsRemaining: this.state.cards.length
       })
-      this.state.cards2.splice(0, 1);
-      this.state.cards.splice(0, 1);
 
     }
     console.log(this.state.discardPile1, this.state.discardPile2);
@@ -93,44 +94,79 @@ export default class CardGameBoardRCC extends Component {
 
     // Tie cards
     if (player1CardValueIndex === player2CardValueIndex) {
-      this.state.discardPile1.push(player1Card);
       this.state.cards.splice(0, 1);
+      this.state.discardPile1.push(player1Card);
 
-      this.state.discardPile2.push(player2Card);
       this.state.cards2.splice(0, 1);
+      this.state.discardPile2.push(player2Card);
+
+      this.setState({
+        player2CardsRemaining: this.state.cards2.length
+      })
+      this.setState({
+        player1CardsRemaining: this.state.cards.length
+      })
 
     }
 
     // reshuffle
 
-    if (this.state.cards2.length <= 1) {
+    if (this.state.cards2.length == 0 || this.state.cards.length == 0) {
 
       this.state.cards = [...this.state.discardPile1]
-      this.setState({
-        discardPile1: []
-      })
       this.state.cards2 = [...this.state.discardPile2]
       this.setState({
-        discardPile2: []
-      })
-    }
-    else if (this.state.cards.length <= 1) {
-      this.state.cards = [...this.state.discardPile1]
-      this.setState({
-        discardPile1: []
-      })
-      this.state.cards2 = [...this.state.discardPile2]
-      this.setState({
-        discardPile2: []
+        discardPile1: [],
+        discardPile2: [],
+        player1CardsRemaining: this.state.cards.length,
+        player2CardsRemaining: this.state.cards2.length
       })
 
+      if (this.state.cards2.length >= 27) {
+        alert('Player 2 has won')
+        this.setState({
+          player2Score: this.state.player2Score + 1,
+          playerHasWon: true
+
+        })
+
+      }
+      else if (this.state.cards.length >= 27) {
+        alert('Player 1 has won')
+        this.setState({
+          player1Score: this.state.player1Score + 1,
+          playerHasWon: true
+        })
+      }
+
+      // else if (this.state.player1Score == 3) {
+      //   alert('Game over, player 1 won the game')
+      //   window.location.reload();
+      // }
+
+      // else if (this.state.player2Score == 3) {
+      //   alert('Game over, player 2 won the game')
+      //   window.location.reload();
+      // }
+
+
+
+
     }
+    // else if (this.state.cards.length == 0) {
+    //   this.state.cards = [...this.state.discardPile1]
+    //   this.state.cards2 = [...this.state.discardPile2]
+    //   this.setState({
+    //     discardPile1: [],
+    //     discardPile2: [],
+    //     player1CardsRemaining: this.state.cards.length,
+    //     player2CardsRemaining: this.state.cards2.length
+    //   })
+
+    // }
 
   };
 
-  // winnerLogic = () => {
-  // 	if()
-  // }
 
 
   drawCard = () => {
@@ -149,33 +185,38 @@ export default class CardGameBoardRCC extends Component {
 
     // console.log(i)
 
-    if (this.state.player2CardsRemaining >= 28) {
-      alert('Player 2 has won')
-      this.setState({
-        player2Score: this.state.player2Score + 1,
-        playerHasWon: true
+    // if (this.state.player2CardsRemaining == 27) {
+    //   alert('Player 2 has won')
+    //   this.setState({
+    //     player2Score: this.state.player2Score + 1,
+    //     playerHasWon: true
 
-      })
+    //   })
 
-    }
-    else if (this.state.player1CardsRemaining >= 28) {
-      alert('Player 1 has won')
-      this.setState({
-        player1Score: this.state.player1Score + 1,
-        playerHasWon: true
-      })
-    }
+    // }
+    // else if (this.state.player1CardsRemaining == 27) {
+    //   alert('Player 1 has won')
+    //   this.setState({
+    //     player1Score: this.state.player1Score + 1,
+    //     playerHasWon: true
+    //   })
+    // }
 
-    else if (this.state.player1Score == 3) {
-      alert('Game over, player 1 won the game')
-      window.location.reload();
-    }
+    // else if (this.state.player1Score == 3) {
+    //   alert('Game over, player 1 won the game')
+    //   window.location.reload();
+    // }
 
-    else if (this.state.player2Score == 3) {
-      alert('Game over, player 2 won the game')
-      window.location.reload();
-    }
-  };
+    // else if (this.state.player2Score == 3) {
+    //   alert('Game over, player 2 won the game')
+    //   window.location.reload();
+    // }
+
+
+
+
+
+  }
 
 
 
@@ -193,6 +234,21 @@ export default class CardGameBoardRCC extends Component {
       discardPile1: [],
       playerHasWon: false
     });
+
+
+
+    if (this.state.player1Score == 3) {
+      alert('Game over, player 1 won the game')
+      window.location.reload();
+    }
+
+    else if (this.state.player2Score == 3) {
+      alert('Game over, player 2 won the game')
+      window.location.reload();
+    }
+
+
+
   }
 
   render() {
@@ -226,7 +282,7 @@ export default class CardGameBoardRCC extends Component {
           {this.state.playerHasWon ? <button className="draw-btn" onClick={() => this.newCards()}>Continue Playing</button> : null}
           {this.state.playerHasWon ? <Confetti></Confetti> : null}
 
-          <button className="draw-btn" onClick={this.drawCard}>Draw Card</button>
+          {this.state.playerHasWon ? null : <button className="draw-btn" onClick={this.drawCard}>Draw Card</button>}
           <p className="game-footer"> Whichever player reaches more than 27 cards first will win the round</p>
         </center>
       </div>
